@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mansa Ram Mahajan & Co — WordPress Admin Control System</title>
+  <link rel="stylesheet" href="assets/css/mrm-styles.css">
+  <link rel="stylesheet" href="../mansa-ram-mahajan/assets/admin/css/mrm-admin.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #F0F0F1;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      display: flex;
+      min-height: 100vh;
+    }
+    /* WP Admin Mock Chrome */
+    .wp-admin-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 32px;
+      background: #1D2327;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      font-size: 13px;
+      z-index: 9999;
+    }
+    .wp-admin-bar a {
+      color: #C3C4C7;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .wp-admin-bar a:hover {
+      color: #72AEE6;
+    }
+    .wp-sidebar {
+      position: fixed;
+      top: 32px;
+      bottom: 0;
+      left: 0;
+      width: 220px;
+      background: #1D2327;
+      color: #FFF;
+      overflow-y: auto;
+      z-index: 999;
+    }
+    .wp-menu {
+      list-style: none;
+      margin: 12px 0 0 0;
+      padding: 0;
+    }
+    .wp-menu-item {
+      position: relative;
+    }
+    .wp-menu-link {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      color: #FFF;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.15s ease;
+      cursor: pointer;
+    }
+    .wp-menu-link:hover, .wp-menu-item.active > .wp-menu-link {
+      background: #2271B1;
+      color: #FFF;
+    }
+    .wp-submenu {
+      list-style: none;
+      margin: 0;
+      padding: 4px 0;
+      background: #2C3338;
+    }
+    .wp-submenu-link {
+      display: block;
+      padding: 6px 16px 6px 28px;
+      color: #C3C4C7;
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.15s ease;
+      cursor: pointer;
+    }
+    .wp-submenu-link:hover, .wp-submenu-link.active {
+      color: #FFF;
+      background: #1D2327;
+      font-weight: 600;
+    }
+    .wp-main-content {
+      margin-left: 220px;
+      margin-top: 32px;
+      padding: 24px 32px;
+      flex: 1;
+      max-width: 1200px;
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+    .mrm-notice-saved {
+      display: none;
+      background: #FFF;
+      border-left: 4px solid #00A32A;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.04);
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mock Top Admin Bar -->
+  <div class="wp-admin-bar">
+    <div style="display:flex; gap:16px; align-items:center;">
+      <a href="index.html" target="_blank"><span>👑 Mansa Ram Mahajan & Co</span></a>
+      <a href="product.html" target="_blank"><span>Visit Product Page</span></a>
+      <a href="shop.html" target="_blank"><span>Visit Storefront</span></a>
+    </div>
+    <div>
+      <span style="color:#C3C4C7; font-size:12px;">Logged in as: <strong>Store Administrator (Farhan)</strong></span>
+    </div>
+  </div>
+
+  <!-- WordPress Admin Sidebar -->
+  <aside class="wp-sidebar">
+    <ul class="wp-menu">
+      <li class="wp-menu-item">
+        <a class="wp-menu-link" style="color:#A7AAAD;">Dashboard</a>
+      </li>
+      <li class="wp-menu-item">
+        <a class="wp-menu-link" style="color:#A7AAAD;">WooCommerce</a>
+      </li>
+      <li class="wp-menu-item">
+        <a class="wp-menu-link" style="color:#A7AAAD;">Products</a>
+      </li>
+
+      <!-- Active Menu: MRM Website Control -->
+      <li class="wp-menu-item active">
+        <a class="wp-menu-link" style="background:#C42B59; font-weight:700;">
+          <span style="margin-right:8px;">🏛</span> MRM Website Control
+        </a>
+        <ul class="wp-submenu">
+          <li><a class="wp-submenu-link active" data-tab="tab-dashboard">Dashboard</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-homepage-builder">Homepage Builder</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-header-navigation">Header & Navigation</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-promotional-banners">Promotional Banners</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-homepage-sections">Homepage Sections</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-campaigns-videos">Campaigns & Videos</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-categories-collections">Categories & Collections</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-store-locations">Store Locations</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-testimonials">Testimonials & Reviews</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-payment-popup">Payment Popup</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-store-settings">Store Settings</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-seo-settings">SEO Settings</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-import-export">Import & Export</a></li>
+          <li><a class="wp-submenu-link" data-tab="tab-system-status">System Status</a></li>
+        </ul>
+      </li>
+
+      <li class="wp-menu-item">
+        <a class="wp-menu-link" style="color:#A7AAAD;">Appearance</a>
+      </li>
+      <li class="wp-menu-item">
+        <a class="wp-menu-link" style="color:#A7AAAD;">Plugins</a>
+      </li>
+      <li class="wp-menu-item">
+        <a class="wp-menu-link" style="color:#A7AAAD;">Settings</a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main WordPress Admin Content -->
+  <main class="wp-main-content">
+    
+    <div class="mrm-notice-saved" id="mrmSavedNotice">
+      <strong>✓ Mansa Ram Mahajan settings saved successfully.</strong> Frontend storefront updated.
+    </div>
+
+    <!-- 1. DASHBOARD TAB -->
+    <div class="tab-panel active" id="tab-dashboard">
+      <div class="mrm-admin-header">
+        <div class="mrm-admin-header-title">
+          <div>
+            <span class="mrm-badge">HAUTE COUTURE ADMIN</span>
+            <h1>Mansa Ram Mahajan & Co — Website Control Hub</h1>
+            <div class="mrm-admin-header-desc">
+              Complete executive management system for storefront layout, split payment deposits, hero banners, store boutiques, and brand aesthetics.
+            </div>
+          </div>
+        </div>
+        <div class="mrm-admin-header-actions">
+          <a href="index.html" target="_blank" class="button mrm-btn-secondary">View Live Website &rarr;</a>
+        </div>
+      </div>
+
+      <div class="mrm-card">
+        <div class="mrm-card-header">
+          <h2 class="mrm-card-title">Commerce Catalog Metrics</h2>
+        </div>
+        <div class="mrm-grid-3">
+          <div class="mrm-stat-box">
+            <div class="mrm-stat-icon">🛍</div>
+            <div class="mrm-stat-info">
+              <h3>Catalog Products</h3>
+              <p class="mrm-val">24 Active Products</p>
+              <a href="#">Manage in WooCommerce &rarr;</a>
+            </div>
+          </div>
+          <div class="mrm-stat-box">
+            <div class="mrm-stat-icon" style="background:#2E7D32;">💳</div>
+            <div class="mrm-stat-info">
+              <h3>Store Orders</h3>
+              <p class="mrm-val">142 Split Orders</p>
+              <a href="#">View Orders &rarr;</a>
+            </div>
+          </div>
+          <div class="mrm-stat-box">
+            <div class="mrm-stat-icon" style="background:#D4AF37;">📍</div>
+            <div class="mrm-stat-info">
+              <h3>NCR Boutiques</h3>
+              <p class="mrm-val">6 Flagships</p>
+              <a href="#" onclick="switchTab('tab-store-locations')">Edit Locations &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mrm-grid-2">
+        <div class="mrm-card">
+          <h3 class="mrm-card-title">Homepage Section Builder</h3>
+          <p style="color:#666; font-size:13px;">Turn on/off individual homepage sections, adjust hero titles, and reorder collections.</p>
+          <button class="button mrm-btn-primary" onclick="switchTab('tab-homepage-builder')">Launch Section Builder</button>
+        </div>
+        <div class="mrm-card">
+          <h3 class="mrm-card-title">Buy Now Split Payment Modal</h3>
+          <p style="color:#666; font-size:13px;">Configure ₹199 token deposit, ₹299 part payment, and order minimum thresholds.</p>
+          <button class="button mrm-btn-primary" onclick="switchTab('tab-payment-popup')">Configure Split Payment</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. HOMEPAGE BUILDER TAB -->
+    <div class="tab-panel" id="tab-homepage-builder">
+      <div class="mrm-admin-header">
+        <div>
+          <span class="mrm-badge">SECTION CONTROLLER</span>
+          <h1>Homepage Builder & Section Manager</h1>
+        </div>
+      </div>
+      <div class="mrm-card">
+        <table class="mrm-form-table">
+          <tr>
+            <th>Section 3: Hero Festive Banner<small>Hero headline, CTA buttons, phone video reel</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 4: Trust Highlights Bar<small>4 luxury trust pillars below hero</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 5: Lookbook & Social Carousel<small>Instagram feed @mansaram_official</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 6: Wedding Collection Grid<small>Showcases 4 bridal lehengas</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 7: Lehenga Collection Grid<small>Voluminous flares and partywear</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 8: Arched Category Showcase<small>4 signature arched tiles</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 9: Saree Collection Grid<small>Banarasi, organza, georgette sarees</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 10: Editorial Campaign Banner<small>"Khushiyan Har Pal" story collage</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 11: Cinematic Video Atelier<small>Full-width craftsmanship video</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 12: VIP Concierge Cards<small>WhatsApp Personal Shopper & appointments</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 13: Store Locations (Delhi NCR)<small>6 flagship retail boutiques</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 14: Testimonials & Reviews<small>Real bride reviews & star ratings</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+          <tr>
+            <th>Section 15: Heritage Statistics<small>25+ Years, 100k+ Brides, 6 Boutiques</small></th>
+            <td><input type="checkbox" checked> Enabled</td>
+          </tr>
+        </table>
+        <div style="margin-top:20px;">
+          <button type="button" class="button mrm-btn-primary" onclick="simulateSave()">Save Section Visibility</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. PROMOTIONAL BANNERS TAB -->
+    <div class="tab-panel" id="tab-promotional-banners">
+      <div class="mrm-admin-header">
+        <div>
+          <span class="mrm-badge">HERO ATELIER & SLIDER</span>
+          <h1>Promotional Banners & Hero Slider</h1>
+          <div style="color:#666; font-size:13px; margin-top:4px;">
+            Configure the 4-slide landscape hero slider, dual action buttons, and trust pillars.
+          </div>
+        </div>
+      </div>
+
+      <div class="mrm-card">
+        <h3 class="mrm-card-title">Landscape Hero Image Slider (4 Landscape Slides)</h3>
+        <table class="mrm-form-table">
+          <tr>
+            <th>Slider Autoplay Interval</th>
+            <td>
+              <input type="number" class="mrm-input-text" value="5000" style="width:140px;">
+              <span style="font-size:12px; color:#666; margin-left:8px;">Milliseconds (Default: 5000ms = 5s)</span>
+            </td>
+          </tr>
+          <tr>
+            <th>Slide 1 (Landscape)</th>
+            <td>
+              <input type="text" class="mrm-input-text" value="Royal Crimson Splendour" style="margin-bottom:6px;">
+              <input type="text" class="mrm-input-text" value="assets/images/mansa-festive-banner.png">
+              <div style="margin-top:6px;"><img src="assets/images/mansa-festive-banner.png" style="width:160px; height:80px; object-fit:cover; border-radius:4px; border:1px solid #ccc;"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>Slide 2 (Landscape)</th>
+            <td>
+              <input type="text" class="mrm-input-text" value="Regal Heritage Weaves" style="margin-bottom:6px;">
+              <input type="text" class="mrm-input-text" value="assets/images/mansa-wedding-season.png">
+              <div style="margin-top:6px;"><img src="assets/images/mansa-wedding-season.png" style="width:160px; height:80px; object-fit:cover; border-radius:4px; border:1px solid #ccc;"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>Slide 3 (Landscape)</th>
+            <td>
+              <input type="text" class="mrm-input-text" value="Khushiyan Har Pal — Bridal Elegance" style="margin-bottom:6px;">
+              <input type="text" class="mrm-input-text" value="assets/images/mansa-bridal-elegance.png">
+              <div style="margin-top:6px;"><img src="assets/images/mansa-bridal-elegance.png" style="width:160px; height:80px; object-fit:cover; border-radius:4px; border:1px solid #ccc;"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>Slide 4 (Landscape)</th>
+            <td>
+              <input type="text" class="mrm-input-text" value="Atelier Masterpieces & Gowns" style="margin-bottom:6px;">
+              <input type="text" class="mrm-input-text" value="assets/images/mansa-couture-portrait.png">
+              <div style="margin-top:6px;"><img src="assets/images/mansa-couture-portrait.png" style="width:160px; height:80px; object-fit:cover; border-radius:4px; border:1px solid #ccc;"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>Primary CTA Button</th>
+            <td>
+              <div style="display:flex; gap:10px;">
+                <input type="text" class="mrm-input-text" value="SHOP NOW" style="width:35%;">
+                <input type="text" class="mrm-input-text" value="shop.html" style="width:65%;">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Secondary CTA Button</th>
+            <td>
+              <div style="display:flex; gap:10px;">
+                <input type="text" class="mrm-input-text" value="EXPLORE BRIDAL" style="width:35%;">
+                <input type="text" class="mrm-input-text" value="#mrmWeddingSection" style="width:65%;">
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div style="margin-top:20px;">
+          <button type="button" class="button mrm-btn-primary" onclick="simulateSave()">Save Hero Slider Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. CAMPAIGNS & VIDEOS TAB -->
+    <div class="tab-panel" id="tab-campaigns-videos">
+      <div class="mrm-admin-header">
+        <div>
+          <span class="mrm-badge">VIDEO ATELIER</span>
+          <h1>Campaigns & Video Storytelling</h1>
+          <div style="color:#666; font-size:13px; margin-top:4px;">
+            Manage the 3-video collection slider with audio and reel previews.
+          </div>
+        </div>
+      </div>
+
+      <div class="mrm-card">
+        <h3 class="mrm-card-title">Atelier Video Collection Slider (3 Client Videos)</h3>
+        <table class="mrm-form-table">
+          <tr>
+            <th>Section Tagline</th>
+            <td><input type="text" class="mrm-input-text" value="HAUTE COUTURE IN MOTION"></td>
+          </tr>
+          <tr>
+            <th>Section Title</th>
+            <td><input type="text" class="mrm-input-text" value="The Poetry of Indian Couturiers"></td>
+          </tr>
+          <tr>
+            <th>Section Narrative</th>
+            <td><textarea class="mrm-input-textarea" rows="2">Immerse in our 3 masterwork collections filmed live inside our historic Delhi ateliers and runway showcases.</textarea></td>
+          </tr>
+          <tr>
+            <th colspan="2" style="background:#FAF8F5; color:#800020; font-weight:700;">VIDEO REEL 01 (Runway Walk)</th>
+          </tr>
+          <tr>
+            <th>Video 1 MP4 File</th>
+            <td><input type="text" class="mrm-input-text" value="assets/video/video-campaign-pink.mp4"></td>
+          </tr>
+          <tr>
+            <th>Video 1 Title & Badge</th>
+            <td>
+              <input type="text" class="mrm-input-text" value="Reel 01 • Runway Walk" style="margin-bottom:6px;">
+              <input type="text" class="mrm-input-text" value="Royal Crimson Bridal Movement">
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2" style="background:#FAF8F5; color:#800020; font-weight:700;">VIDEO REEL 02 (Sangeet Flare)</th>
+          </tr>
+          <tr>
+            <th>Video 2 MP4 File</th>
+            <td><input type="text" class="mrm-input-text" value="assets/video/video-lehenga-showcase.mp4"></td>
+          </tr>
+          <tr>
+            <th>Video 2 Title & Badge</th>
+            <td>
+              <input type="text" class="mrm-input-text" value="Reel 02 • Sangeet Flare" style="margin-bottom:6px;">
+              <input type="text" class="mrm-input-text" value="Celebratory Gold Can-Can Flare">
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2" style="background:#FAF8F5; color:#800020; font-weight:700;">VIDEO REEL 03 (Atelier Fit)</th>
+          </tr>
+          <tr>
+            <th>Video 3 MP4 File</th>
+            <td><input type="text" class="mrm-input-text" value="assets/video/video-product-gallery.mp4"></td>
+          </tr>
+          <tr>
+            <th>Video 3 Title & Badge</th>
+            <td>
+              <input type="text" class="mrm-input-text" value="Reel 03 • Atelier Fit" style="margin-bottom:6px;">
+              <input type="text" class="mrm-input-text" value="Artisanal Silk Draping & Silhouette">
+            </td>
+          </tr>
+        </table>
+        <div style="margin-top:20px;">
+          <button type="button" class="button mrm-btn-primary" onclick="simulateSave()">Save Video Collection Slider</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. PAYMENT POPUP TAB -->
+    <div class="tab-panel" id="tab-payment-popup">
+      <div class="mrm-admin-header">
+        <div>
+          <span class="mrm-badge">CONVERSION ENGINE</span>
+          <h1>Buy Now Split Payment Modal Settings</h1>
+        </div>
+      </div>
+      <div class="mrm-card">
+        <table class="mrm-form-table">
+          <tr>
+            <th>Modal Heading</th>
+            <td><input type="text" class="mrm-input-text" value="Choose Your Preferred Payment Option"></td>
+          </tr>
+          <tr>
+            <th>Option 1: Token Deposit (₹)</th>
+            <td><input type="number" class="mrm-input-text" value="199" style="width:140px;"></td>
+          </tr>
+          <tr>
+            <th>Option 1 Title</th>
+            <td><input type="text" class="mrm-input-text" value="Pay ₹199 Token Deposit"></td>
+          </tr>
+          <tr>
+            <th>Option 2: Partial Payment (₹)</th>
+            <td><input type="number" class="mrm-input-text" value="299" style="width:140px;"></td>
+          </tr>
+          <tr>
+            <th>Option 2 Title</th>
+            <td><input type="text" class="mrm-input-text" value="Pay ₹299 Partial Payment"></td>
+          </tr>
+          <tr>
+            <th>Option 3: Full Payment Online</th>
+            <td><input type="text" class="mrm-input-text" value="100% Full Payment Online"></td>
+          </tr>
+          <tr>
+            <th>Minimum Order Eligible (₹)</th>
+            <td><input type="number" class="mrm-input-text" value="999" style="width:140px;"></td>
+          </tr>
+          <tr>
+            <th>Doorstep Cash on Delivery</th>
+            <td><label><input type="checkbox" checked> Allow cash/UPI on delivery for remaining balance</label></td>
+          </tr>
+        </table>
+        <div style="margin-top:20px;">
+          <button type="button" class="button mrm-btn-primary" onclick="simulateSave()">Save Payment Modal Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. STORE SETTINGS / COLORS TAB -->
+    <div class="tab-panel" id="tab-store-settings">
+      <div class="mrm-admin-header">
+        <div>
+          <span class="mrm-badge">COLOR PALETTE</span>
+          <h1>Brand Palette & Design System</h1>
+        </div>
+      </div>
+      <div class="mrm-card">
+        <table class="mrm-form-table">
+          <tr>
+            <th>Primary Brand Crimson</th>
+            <td>
+              <div class="mrm-color-wrap">
+                <input type="color" value="#C42B59">
+                <input type="text" class="mrm-input-text" value="#C42B59" style="width:120px;">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Royal Gold Accent</th>
+            <td>
+              <div class="mrm-color-wrap">
+                <input type="color" value="#D4AF37">
+                <input type="text" class="mrm-input-text" value="#D4AF37" style="width:120px;">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Deep Regal Dark</th>
+            <td>
+              <div class="mrm-color-wrap">
+                <input type="color" value="#1A1A1A">
+                <input type="text" class="mrm-input-text" value="#1A1A1A" style="width:120px;">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Free Domestic Shipping Minimum (₹)</th>
+            <td><input type="number" class="mrm-input-text" value="14999" style="width:140px;"></td>
+          </tr>
+        </table>
+        <div style="margin-top:20px;">
+          <button type="button" class="button mrm-btn-primary" onclick="simulateSave()">Save Design Palette</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. SYSTEM STATUS TAB -->
+    <div class="tab-panel" id="tab-system-status">
+      <div class="mrm-admin-header">
+        <div>
+          <span class="mrm-badge">HEALTH CHECK</span>
+          <h1>System & Environment Diagnostics</h1>
+        </div>
+      </div>
+      <div class="mrm-card">
+        <table class="mrm-form-table">
+          <tr>
+            <th>Theme Status</th>
+            <td><strong style="color:#2E7D32;">✓ Mansa Ram Mahajan & Co v1.0.0 Active</strong></td>
+          </tr>
+          <tr>
+            <th>Split Payment Plugin</th>
+            <td><strong style="color:#2E7D32;">✓ MRM Split Payment v1.0.0 Active & Synchronized</strong></td>
+          </tr>
+          <tr>
+            <th>Client Media Assets</th>
+            <td><strong style="color:#2E7D32;">✓ 21 Client Photos + 3 MP4 Videos Verified</strong></td>
+          </tr>
+          <tr>
+            <th>Options Storage</th>
+            <td><code>mrm_website_options</code> in WordPress wp_options</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.wp-submenu-link').forEach(l => l.classList.remove('active'));
+      const targetPanel = document.getElementById(tabId);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+      const targetLink = document.querySelector(`.wp-submenu-link[data-tab="${tabId}"]`);
+      if (targetLink) {
+        targetLink.classList.add('active');
+      }
+    }
+
+    document.querySelectorAll('.wp-submenu-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const tabId = this.getAttribute('data-tab');
+        if (tabId) {
+          switchTab(tabId);
+        }
+      });
+    });
+
+    function simulateSave() {
+      const notice = document.getElementById('mrmSavedNotice');
+      notice.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        notice.style.display = 'none';
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

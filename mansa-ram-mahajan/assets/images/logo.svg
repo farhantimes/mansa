@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 44" width="380" height="44">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;display=swap');
+    .mrm-logo-text {
+      font-family: 'Playfair Display', 'Cinzel', 'Didot', 'Bodoni MT', 'Cormorant Garamond', 'Baskerville', Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 4.5px;
+      fill: #1A1A1A;
+      dominant-baseline: central;
+    }
+  </style>
+  <text x="50%" y="22" text-anchor="middle" class="mrm-logo-text">MANSA RAM MAHAJAN</text>
+</svg>

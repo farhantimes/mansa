@@ -1,0 +1,395 @@
+/*
+-----------------------------------------------------------------------------------
+Mansa Ram Mahajan & Co — Comprehensive Responsive Media Queries
+Breakpoints: 1440px, 1024px, 768px, 430px, 390px, 360px
+-----------------------------------------------------------------------------------
+*/
+
+/* 1200px - 1440px */
+@media (max-width: 1440px) {
+  .mrm-hero-title {
+    font-size: 3.2rem;
+  }
+  .mrm-grid-5 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 1024px - Tablets Landscape / Small Laptops */
+@media (max-width: 1024px) {
+  .mrm-hero-section,
+  .mrm-hero-section.mrm-hero-fullwidth {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mrm-hero-container {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .mrm-hero-slider-wrapper {
+    border-radius: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mrm-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mrm-grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mrm-grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mrm-grid-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mrm-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mrm-campaign-collage-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .mrm-collage-col-text {
+    grid-column: span 2;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+
+  .mrm-product-main-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mrm-gallery-column {
+    position: static;
+  }
+
+  .mrm-footer-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .mrm-footer-col.mrm-footer-brand {
+    grid-column: span 3;
+  }
+
+  .mrm-catalog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mrm-filter-sidebar {
+    display: none; /* toggleable on mobile/tablet */
+  }
+}
+
+/* 768px - Tablets Portrait / Mobile Large */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+    --announcement-height: 34px;
+  }
+
+  .mrm-mobile-toggle {
+    display: block;
+  }
+
+  .mrm-utility-nav {
+    display: none;
+  }
+
+  .mrm-primary-navigation {
+    display: none;
+  }
+
+  .mrm-header-search {
+    display: none; /* Accessible in drawer or header modal */
+  }
+
+  .mrm-brand-logo img {
+    height: 44px;
+  }
+
+  .mrm-hero-section,
+  .mrm-hero-section.mrm-hero-fullwidth {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mrm-hero-container {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .mrm-hero-slider-wrapper {
+    aspect-ratio: 2 / 1;
+    border-radius: 0;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mrm-hero-floating-actions {
+    bottom: 12px;
+    left: 12px;
+    gap: 8px;
+  }
+
+  .mrm-hero-floating-actions .mrm-btn-hero {
+    padding: 7px 14px;
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+  }
+
+  .mrm-hero-slider-arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mrm-hero-slider-arrow.prev {
+    left: 6px;
+  }
+
+  .mrm-hero-slider-arrow.next {
+    right: 6px;
+  }
+
+  .mrm-hero-slider-dots {
+    bottom: 12px;
+    right: 12px;
+    padding: 3px 8px;
+  }
+
+  .mrm-trust-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .mrm-grid-4, .mrm-grid-5, .mrm-grid-6 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .mrm-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .mrm-campaign-collage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mrm-collage-col-stacked {
+    flex-direction: row;
+  }
+
+  .mrm-stacked-item {
+    flex: 1;
+    height: 180px;
+  }
+
+  .mrm-collage-col-primary img {
+    height: 360px;
+  }
+
+  .mrm-collage-col-text {
+    grid-column: span 1;
+  }
+
+  .mrm-campaign-heading {
+    font-size: 2.1rem;
+  }
+
+  .mrm-video-collection-section {
+    padding: 50px 0;
+  }
+
+  .mrm-video-collection-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 0 4px 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .mrm-video-collection-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mrm-video-card {
+    min-width: 270px;
+    max-width: 80vw;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+
+  .mrm-video-slider-dots {
+    display: flex;
+  }
+
+  .mrm-video-nav-btn {
+    display: none;
+  }
+
+  .mrm-support-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mrm-stores-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mrm-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mrm-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .mrm-stat-item {
+    border-right: none;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 16px;
+  }
+
+  .mrm-stat-item:nth-child(3), .mrm-stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .mrm-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .mrm-footer-col.mrm-footer-brand {
+    grid-column: span 1;
+  }
+
+  .mrm-delivery-timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .mrm-timeline-line {
+    width: 2px;
+    height: 16px;
+    margin: 0 0 0 17px;
+  }
+
+  .mrm-single-title {
+    font-size: 1.6rem;
+  }
+
+  .mrm-actions-row {
+    display: grid;
+    grid-template-columns: 1fr 48px 48px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .mrm-actions-row .mrm-btn-add-cart {
+    grid-column: 1 / 2;
+    width: 100%;
+    height: 48px;
+    margin: 0;
+  }
+
+  .mrm-actions-row .mrm-icon-action-btn {
+    width: 48px;
+    height: 48px;
+    margin: 0;
+  }
+
+  .mrm-actions-row .mrm-btn-buy-now {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+  }
+}
+
+/* 430px, 390px, 360px - Mobile Devices */
+@media (max-width: 480px) {
+  .mrm-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mrm-brand-logo img {
+    height: 38px;
+  }
+
+  .mrm-header-right {
+    gap: 8px;
+  }
+
+  .mrm-icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mrm-announcement-bar {
+    font-size: 0.75rem;
+  }
+
+  .mrm-hero-title {
+    font-size: 2rem;
+  }
+
+  .mrm-section-title h2 {
+    font-size: 1.5rem;
+  }
+
+  .mrm-product-card .mrm-product-title {
+    font-size: 0.8rem;
+  }
+
+  .mrm-price {
+    font-size: 0.9rem;
+  }
+
+  .mrm-regular-price {
+    font-size: 0.75rem;
+  }
+
+  .mrm-stat-num {
+    font-size: 2.2rem;
+  }
+
+  .mrm-whatsapp-float {
+    width: 48px;
+    height: 48px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .mrm-whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+  }
+}

@@ -1,0 +1,427 @@
+/*
+-----------------------------------------------------------------------------------
+Mansa Ram Mahajan & Co — Split Payment Modal Styles (Screenshot 3 Reference)
+-----------------------------------------------------------------------------------
+*/
+
+.mrm-split-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mrm-split-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mrm-split-modal-dialog {
+  background: #FFFFFF;
+  width: 100%;
+  max-width: 860px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  transform: scale(0.95) translateY(10px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 90vh;
+}
+
+.mrm-split-modal-backdrop.active .mrm-split-modal-dialog {
+  transform: scale(1) translateY(0);
+}
+
+/* =========================================================================
+   LEFT SUMMARY PANEL
+   ========================================================================= */
+.mrm-split-summary-panel {
+  background: #FAF8F5;
+  border-right: 1px solid #EAE5DE;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mrm-split-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.mrm-brand-crest {
+  color: #C42B59;
+  font-size: 1.1rem;
+}
+
+.mrm-brand-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #1A1A1A;
+}
+
+.mrm-split-product-card {
+  display: flex;
+  gap: 16px;
+  background: #FFFFFF;
+  border: 1px solid #ECE7E0;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 24px;
+}
+
+.mrm-split-thumb-box {
+  width: 72px;
+  height: 96px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #F0EDE8;
+  flex-shrink: 0;
+}
+
+.mrm-split-thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mrm-split-product-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mrm-split-product-meta h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #111111;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mrm-split-variations {
+  display: flex;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #666666;
+  margin-top: 4px;
+}
+
+.mrm-split-var-tag strong {
+  color: #111111;
+}
+
+.mrm-split-qty-row {
+  font-size: 0.75rem;
+  color: #666666;
+  margin-top: 2px;
+}
+
+.mrm-split-price-display {
+  margin-top: 6px;
+}
+
+.mrm-split-label {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888888;
+}
+
+.mrm-split-total-amount {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #C42B59;
+}
+
+.mrm-split-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: #555555;
+  border-top: 1px solid #EAE5DE;
+  padding-top: 20px;
+}
+
+/* =========================================================================
+   RIGHT PAYMENT OPTIONS PANEL
+   ========================================================================= */
+.mrm-split-options-panel {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.mrm-split-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.mrm-split-panel-header h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  color: #111111;
+}
+
+.mrm-split-close-btn {
+  background: none;
+  border: none;
+  color: #666666;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.mrm-split-close-btn:hover {
+  color: #C42B59;
+}
+
+/* Choices List */
+.mrm-split-choices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.mrm-choice-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border: 1.5px solid #E5E0D8;
+  border-radius: 8px;
+  background: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mrm-choice-card input[type="radio"] {
+  display: none;
+}
+
+.mrm-choice-radio-visual {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #CCCCCC;
+  margin-top: 2px;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.mrm-choice-card.active {
+  border-color: #C42B59;
+  background-color: #FFF9FA;
+  box-shadow: 0 4px 14px rgba(196, 43, 89, 0.08);
+}
+
+.mrm-choice-card.active .mrm-choice-radio-visual {
+  border-color: #C42B59;
+}
+
+.mrm-choice-card.active .mrm-choice-radio-visual::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #C42B59;
+}
+
+.mrm-choice-content {
+  flex: 1;
+}
+
+.mrm-choice-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.mrm-choice-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.mrm-choice-badge {
+  background-color: #FFF0F4;
+  color: #C42B59;
+  border: 1px solid rgba(196, 43, 89, 0.2);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.mrm-choice-badge.mrm-badge-green {
+  background-color: #E8F8EE;
+  color: #0E7072;
+  border-color: rgba(14, 112, 114, 0.2);
+}
+
+.mrm-choice-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.85rem;
+}
+
+.mrm-amount-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #555555;
+}
+
+.mrm-amount-highlight {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #C42B59;
+}
+
+.mrm-amount-sub {
+  font-size: 0.78rem;
+  color: #888888;
+}
+
+/* Action Button */
+.mrm-split-action-wrap {
+  margin-bottom: 20px;
+}
+
+.mrm-btn-continue-pay {
+  width: 100%;
+  height: 52px;
+  background-color: #C42B59;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(196, 43, 89, 0.3);
+}
+
+.mrm-btn-continue-pay:hover {
+  background-color: #A01D44;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(196, 43, 89, 0.4);
+}
+
+.mrm-btn-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: mrmSpin 0.7s linear infinite;
+}
+
+@keyframes mrmSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Trust Footer */
+.mrm-split-trust-footer {
+  border-top: 1px solid #EEEEEE;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.mrm-trust-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: #2E7D32;
+}
+
+.mrm-payment-icons-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mrm-pay-tag {
+  background: #F4F4F6;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  color: #555555;
+}
+
+/* Mobile Stacking (< 768px) */
+@media (max-width: 768px) {
+  .mrm-split-modal-dialog {
+    grid-template-columns: 1fr;
+    max-height: 92vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mrm-split-summary-panel {
+    padding: 20px 16px;
+    border-right: none;
+    border-bottom: 1px solid #EAE5DE;
+  }
+
+  .mrm-split-options-panel {
+    padding: 20px 16px;
+  }
+
+  .mrm-split-perks {
+    display: none; /* Hide extra perks on mobile to save vertical space */
+  }
+
+  .mrm-choice-card {
+    padding: 12px;
+  }
+}

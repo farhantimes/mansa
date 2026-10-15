@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" width="100%" height="180" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="skylineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EBB39C" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#DE8C6E" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="skylineBackGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F2C8B5" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#E5A68E" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Distant Background Monuments Silhouette -->
+  <g fill="url(#skylineBackGrad)">
+    <!-- Distant Domes and Towers Left -->
+    <path d="M 60,180 L 60,130 C 60,115 80,100 95,100 C 110,100 130,115 130,130 L 130,180 Z"/>
+    <path d="M 170,180 L 170,110 L 175,105 L 180,110 L 180,180 Z"/>
+    <path d="M 230,180 L 230,120 C 230,105 250,90 270,90 C 290,90 310,105 310,120 L 310,180 Z"/>
+    
+    <!-- Distant Red Fort Ramparts -->
+    <path d="M 360,180 L 360,115 L 370,115 L 370,120 L 380,120 L 380,115 L 390,115 L 390,120 L 400,120 L 400,115 L 430,115 L 430,180 Z"/>
+
+    <!-- Central India Gate Distant Outline -->
+    <path d="M 660,180 L 660,75 L 760,75 L 760,180 L 735,180 L 735,100 C 735,88 685,88 685,100 L 685,180 Z"/>
+
+    <!-- Distant Lotus Temple / Domes Right -->
+    <path d="M 910,180 C 910,110 930,80 970,80 C 1010,80 1030,110 1030,180 Z"/>
+    <path d="M 1120,180 L 1120,95 L 1130,85 L 1140,95 L 1140,180 Z"/>
+    <path d="M 1250,180 L 1250,120 C 1250,105 1270,95 1290,95 C 1310,95 1330,105 1330,120 L 1330,180 Z"/>
+  </g>
+
+  <!-- Foreground Detailed Monuments Silhouette (Odhni reference style) -->
+  <g fill="url(#skylineGrad)">
+    <!-- Base Ground / Wall Layer -->
+    <rect x="0" y="155" width="1440" height="25"/>
+    
+    <!-- Left Heritage Pavilion & Chhatri -->
+    <path d="M 20,155 L 20,135 L 25,135 L 25,115 C 25,100 45,95 45,85 C 45,95 65,100 65,115 L 65,135 L 70,135 L 70,155 Z"/>
+    <circle cx="45" cy="80" r="3" fill="#D4AF37"/>
+
+    <!-- Red Fort Arches & Chhatris Left (120 - 450) -->
+    <path d="M 100,155 L 100,125 L 140,125 L 140,155 Z"/>
+    <!-- Minaret Tower 1 -->
+    <path d="M 155,155 L 160,85 L 168,85 L 168,75 L 172,70 L 176,75 L 176,85 L 184,85 L 189,155 Z"/>
+    <circle cx="172" cy="65" r="3" fill="#D4AF37"/>
+    
+    <!-- Red Fort Gateway & Arched Windows -->
+    <path d="M 200,155 L 200,110 L 210,110 L 210,105 L 220,105 L 220,110 L 230,110 L 230,105 L 240,105 L 240,110 L 250,110 L 250,105 L 260,105 L 260,110 L 280,110 L 280,155 Z"/>
+    <!-- Dome over Fort Gateway -->
+    <path d="M 230,105 C 230,90 240,80 245,72 C 250,80 260,90 260,105 Z"/>
+    <circle cx="245" cy="68" r="3" fill="#D4AF37"/>
+    
+    <!-- Arched windows cutout -->
+    <path d="M 300,155 L 300,120 L 350,120 L 350,155 Z"/>
+    <path d="M 360,155 L 360,95 L 368,95 L 368,85 L 372,78 L 376,85 L 376,95 L 384,95 L 388,155 Z"/>
+
+    <!-- Indian Flag Motif in Monument Section -->
+    <g transform="translate(490, 85)">
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#AA7C11" stroke-width="2"/>
+      <rect x="0" y="0" width="24" height="4" fill="#FF9933"/>
+      <rect x="0" y="4" width="24" height="4" fill="#FFFFFF"/>
+      <rect x="0" y="8" width="24" height="4" fill="#138808"/>
+      <circle cx="12" cy="6" r="1.8" fill="#000080"/>
+    </g>
+
+    <!-- Famous India Gate Silhouette (Center: 650 - 780) -->
+    <path d="M 640,155 L 640,65 L 648,65 L 648,58 L 762,58 L 762,65 L 770,65 L 770,155 L 735,155 L 735,95 C 735,78 675,78 675,95 L 675,155 Z"/>
+    <!-- Top crown layer of India Gate -->
+    <rect x="665" y="48" width="80" height="10" rx="1"/>
+    <rect x="685" y="42" width="40" height="6" rx="1"/>
+    <circle cx="705" cy="38" r="3" fill="#D4AF37"/>
+
+    <!-- Qutub Minar Silhouette (840 - 870) -->
+    <polygon points="846,155 850,55 858,55 862,155"/>
+    <line x1="848" y1="130" x2="860" y2="130" stroke="#FFF" stroke-width="1" opacity="0.6"/>
+    <line x1="849" y1="105" x2="859" y2="105" stroke="#FFF" stroke-width="1" opacity="0.6"/>
+    <line x1="850" y1="80" x2="858" y2="80" stroke="#FFF" stroke-width="1" opacity="0.6"/>
+    <rect x="851" y="48" width="6" height="7"/>
+    <polygon points="854,40 851,48 857,48" fill="#D4AF37"/>
+
+    <!-- Lotus Temple Silhouette (Center Right: 930 - 1050) -->
+    <!-- Outer Petals -->
+    <path d="M 920,155 C 930,120 950,95 990,82 C 1030,95 1050,120 1060,155 Z"/>
+    <!-- Inner Petals -->
+    <path d="M 945,155 C 955,115 970,88 990,70 C 1010,88 1025,115 1035,155 Z" fill="#E8A78F"/>
+    <!-- Center Peak -->
+    <path d="M 975,155 C 980,105 985,82 990,62 C 995,82 1000,105 1005,155 Z" fill="#D98A70"/>
+
+    <!-- Right Heritage Pavilion & Domes (1100 - 1420) -->
+    <path d="M 1120,155 L 1120,115 C 1120,95 1145,80 1160,80 C 1175,80 1200,95 1200,115 L 1200,155 Z"/>
+    <circle cx="1160" cy="74" r="3.5" fill="#D4AF37"/>
+    <path d="M 1240,155 L 1245,95 L 1252,95 L 1256,86 L 1260,95 L 1267,95 L 1272,155 Z"/>
+    <path d="M 1300,155 L 1300,120 L 1315,120 L 1315,108 C 1315,98 1335,92 1335,80 C 1335,92 1355,98 1355,108 L 1355,120 L 1370,120 L 1370,155 Z"/>
+    <circle cx="1335" cy="74" r="3" fill="#D4AF37"/>
+  </g>
+
+  <!-- Small Arched Gate Pattern Running Across Base -->
+  <g fill="#C7785C" opacity="0.65">
+    <path d="M 0,165 Q 10,156 20,165 Q 30,156 40,165 Q 50,156 60,165 Q 70,156 80,165 Q 90,156 100,165 Q 110,156 120,165 Q 130,156 140,165 Q 150,156 160,165 Q 170,156 180,165 Q 190,156 200,165 Q 210,156 220,165 Q 230,156 240,165 Q 250,156 260,165 Q 270,156 280,165 Q 290,156 300,165 Q 310,156 320,165 Q 330,156 340,165 Q 350,156 360,165 Q 370,156 380,165 Q 390,156 400,165 Q 410,156 420,165 Q 430,156 440,165 Q 450,156 460,165 Q 470,156 480,165 Q 490,156 500,165 Q 510,156 520,165 Q 530,156 540,165 Q 550,156 560,165 Q 570,156 580,165 Q 590,156 600,165 Q 610,156 620,165 Q 630,156 640,165 Q 650,156 660,165 Q 670,156 680,165 Q 690,156 700,165 Q 710,156 720,165 Q 730,156 740,165 Q 750,156 760,165 Q 770,156 780,165 Q 790,156 800,165 Q 810,156 820,165 Q 830,156 840,165 Q 850,156 860,165 Q 870,156 880,165 Q 890,156 900,165 Q 910,156 920,165 Q 930,156 940,165 Q 950,156 960,165 Q 970,156 980,165 Q 990,156 1000,165 Q 1010,156 1020,165 Q 1030,156 1040,165 Q 1050,156 1060,165 Q 1070,156 1080,165 Q 1090,156 1100,165 Q 1110,156 1120,165 Q 1130,156 1140,165 Q 1150,156 1160,165 Q 1170,156 1180,165 Q 1190,156 1200,165 Q 1210,156 1220,165 Q 1230,156 1240,165 Q 1250,156 1260,165 Q 1270,156 1280,165 Q 1290,156 1300,165 Q 1310,156 1320,165 Q 1330,156 1340,165 Q 1350,156 1360,165 Q 1370,156 1380,165 Q 1390,156 1400,165 Q 1410,156 1420,165 Q 1430,156 1440,165 L 1440,180 L 0,180 Z"/>
+  </g>
+</svg>
